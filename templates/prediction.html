@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tomato Leaf Disease Prediction</title>
+        <!-- CSS file -->
+        <link rel="stylesheet" href="{{ url_for('static', path= '/style.css') }}">
+        <!-- bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+      </head>
+      <body>
+    <div class="container page" style="padding-top: 50px;">
+
+        <div>
+            {% if not result %}
+            <div>
+                <div class="title text-center">
+                    <h1>TOMATO LEAF DISEASES</h1>
+                </div>
+                <!-- <div>
+                    <a href="">sample images</a>
+                </div> -->
+                <form action="" method="post" enctype="multipart/form-data">
+                    <label for="input-file" id="drop-area">
+                        <!-- <input type="file" name="file" hidden> -->
+                        <input type='file'  name="file" accept="image/*" id="input-file" hidden/>
+                        <div id="img-view">
+                            <img src="./static/icon-3.png" alt="upload file" class="mt-5" style="background-position: center;">
+                            <p>Drag and drop or click here <br> to upload image</p>
+                            <span>upload iamges from desktop</span>
+                        </div>
+                    </label>
+                    <br>
+                    <div class="mt-3 text-center">
+                        <button class = "button" type="submit" id="q" 
+                        onclick="this.classList.toggle('button--loading')">
+                            <!-- <input type="submit" id="q"> -->
+                            <span class="button__text" style="font: bold">Predict</span>
+                        </button>
+                    </div>
+                    
+                    </form>
+            </div>
+            {% endif %}
+
+            <!-- Display output data -->
+            {% if result %}
+            <div class="title text-center">
+                <h1>DIAGNOSIS RESULTS</h1>
+            </div> 
+            <!--IF USE LOCAL STORAGE  -->
+            <!-- <div class="row form-container">
+                <div class="col-md-6" style="text-align: center;">
+                    <img src="{{ "./images/cam/org.png" }}" alt="original image" style="max-width: 100%;">
+                    <h2>Query Image</h2>
+                </div>
+            
+                <div class="col-md-6" style="text-align: center;">
+                    <img src="{{ "./images/cam/cam.png" }}" alt="Grad-CAM" style="max-width: 100%;">
+                    <h2>Possible Affcted Areas</h2>
+                </div>
+            </div> -->
+
+            <div class="row form-container">
+                <!-- {% if result.org_encoded_img  %} -->
+                <div class="col-md-6" style="text-align: center;">
+                    <img src='{{result.org_encoded_img}}' alt="original image" style="max-width: 100%;">
+                    <h2>Query Image</h2>
+                </div>
+                <!-- {% endif %} -->
+                
+                <!-- {% if result.cam_encoded_img  %} -->
+                <div class="col-md-6" style="text-align: center;">
+                    <img src='{{result.cam_encoded_img}}' alt="Grad-CAM" style="max-width: 100%;">
+                    <h2>Possible Affcted Areas</h2>
+                </div>
+                <!-- {% endif %} -->
+            </div>
+            
+        
+            <div class="row" 
+            style="background-color: #dde6f3;
+            font-family: 'Titillium Web', sans-serif;
+            font-size: 20;
+            margin-top: 0.5rem;
+            border-radius: 10px;
+            box-shadow: 0 0 25px -15px rgba(0, 0, 0, 0.3);">
+
+                <h4 class="text-left">Predicted Class: {{result.class_name}}</h4>
+ 
+            </div>
+            <div class="text-center mt-3 mb-2">
+                <form action="" method="get">
+                    <button type= "submit" class="button"hx-get="/">
+                        <span class="button__text" style="font: bold">Predict Again</span>
+                    </button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+        <!-- javascript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="./static/script.js"></script>
+
+      </body>
+    
+</html>
