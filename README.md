@@ -17,4 +17,7 @@ To facilitate real-time evaluation of this system, we have provided the dataset.
 
 * [Dataset for test cases](https://drive.google.com/drive/folders/1Lpup3ygMFoCxnS1vg2kn1Tfsh6xALxus?usp=sharing)
 
-There are total 10 classes in this datset. 
+There are total 10 classes in this datset. This website is publicly available at:
+```
+https://aambaguner-rog.onrender.com
+```
