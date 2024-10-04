@@ -1,0 +1,264 @@
+/* General Styling for Body */
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height:100%;/*or 100vh */
+    position:relative;
+}
+
+/* Ensuring Content Fills Available Height */
+.content {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Navigation Bar */
+.navbar {
+    background: #495089; /* Navbar background color */
+    height: 70px; /* Set the height of the navbar */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+/* Navbar Link Colors */
+.navbar-nav > li > a {
+    color: whitesmoke;
+}
+
+.navbar-nav > li > a:hover {
+    color: rgb(223, 236, 224); /* Light color on hover */
+}
+
+
+.navbar-brand {
+    color: whitesmoke;
+    cursor: pointer; /* Cursor changes to pointer for nav links */
+}
+
+/* Normal navbar link styles */
+.nav-link {
+    color: whitesmoke;
+    margin-right: 2.75em !important;
+}
+
+.navbar-collapse {
+    justify-content: flex-end; /* Aligns nav items to the right */
+}
+
+
+/* Change navbar link color in smaller screens (collapsed) */
+.navbar-collapse.show .nav-link {
+    color: whitesmoke;
+}
+
+/* Navbar background in collapsed mode */
+.navbar-collapse {
+    background-color: #495089; /* Optional: you can also change the background color when the navbar is collapsed */
+}
+
+/* Optional: Change the background color for collapsed items */
+.navbar-toggler {
+    background-color: whitesmoke; 
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Footer Styling */
+.page-footer {
+    /* background-color: rgb(33, 8, 133); 
+     */
+    background-color: #495089;
+    color: #fff; /* White text */
+    padding: 20px 0; /* Padding for spacing */
+}
+
+/* Flexbox Layout for Footer Positioning */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column; /* Flexbox for vertical layout */
+}
+
+.page-footer {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    flex-shrink: 0; /* Ensures footer stays at the bottom */
+}
+
+/* Content area will take remaining space above the footer */
+.content {
+    flex: 1;
+    padding: 20px; /* Adds some padding to the content */
+}
+
+/* Footer Text Centering */
+.footer-copyright {
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* Page  */
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(99.6deg, rgba(112,128,152,1) 10.6%, rgba(242,227,234,1) 32.9%, rgba(234,202,213,1) 52.7%, rgba(220,227,239,1) 72.8%, rgba(185,205,227,1) 81.1%, rgba(154,180,212,1) 102.4%);
+  }
+
+/* form */
+.form-container{
+    background-color: #dde6f3;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 25px -15px rgba(0, 0, 0, 0.3);
+}
+
+.result{
+    background-color: #dde6f3;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 25px -15px rgba(0, 0, 0, 0.3);
+}
+
+.form-container .title{
+    color: #000;
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: 0 0 25px;
+}
+
+
+#drop-area{
+    width: 500px;
+    height: 400px;
+    padding: 30px;
+    background: #fff;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#img-view{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 2px dashed #bbb5ff;
+    background: #f7f8ff;
+    background-position: center;
+    background-size: cover;
+
+}
+
+#img-view img{
+    width:25%;
+    height: 25%;
+    margin-top: 25px;
+}
+
+#img-view span{
+    display: block;
+    font-size: 12px;
+    color: #777;
+    margin-top: 15px;
+}
+
+
+.button {
+    position: relative;
+    padding: 8px 16px;
+    background: #495089;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  
+  .button:active {
+    background: #071486;
+  }
+
+  .button:hover{
+    background: #141737;
+    color: white;
+  }
+  
+  .button__text {
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+    transition: all 0.2s;
+  }
+  
+  .button--loading .button__text {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .button--loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+  }
+
+/* text justify */
+.justify-text {
+    text-align: justify;
+}
+
+
+/* card image */
+
+.card-img-top {
+    width: 150%; /* Make the image fill the width of the card */
+    height: 200px; /* Set a fixed height */
+    object-fit: contain; /* Ensure the image covers the area without stretching */
+    background-color: #f8f9fa;
+}
+
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; /* Align images to the top */
+}
+
+.col {
+    flex: 1 0 21%; /* Adjust the percentage to control the width of each column (around 21%) */
+    margin: 0.5%; /* Add a small margin to create space between the columns */
+}
+
+.card-body {
+    padding: 10px; /* Reduce padding to minimize space */
+}
+
+
+  @keyframes button-loading-spinner {
+    from {
+      transform: rotate(0turn);
+    }
+  
+    to {
+      transform: rotate(1turn);
+    }
+  }

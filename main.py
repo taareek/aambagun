@@ -18,7 +18,7 @@ template = Jinja2Templates(directory= "templates")
 
 @app.get("/")
 def home(request: Request):
-    return template.TemplateResponse("prediction.html", {"request":request})
+    return template.TemplateResponse("index.html", {"request":request})
 
 @app.post("/")
 def demo_home(request: Request, file:UploadFile= File(...)):
@@ -30,7 +30,23 @@ def demo_home(request: Request, file:UploadFile= File(...)):
         result = utils_main.get_prediction(input_img=file)
     except Exception as e:
         error = e
-    return template.TemplateResponse("prediction.html", {"request":request, "result":result, "error":error})
+    return template.TemplateResponse("index.html", {"request":request, "result":result, "error":error})
+
+
+# dataset page 
+@app.get("/about")
+def home(request: Request):
+    return template.TemplateResponse("about.html", {"request":request})
+
+# dataset page 
+@app.get("/dataset")
+def home(request: Request):
+    return template.TemplateResponse("dataset.html", {"request":request})
+
+# dataset page 
+@app.get("/researcher")
+def home(request: Request):
+    return template.TemplateResponse("researcher.html", {"request":request})
 
 
 @app.post("/predict")
